@@ -1,0 +1,17 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px auto;
+}
+
+.search {
+  -webkit-appearance: none;
+  border: none;
+  /* text-align: center; */
+  border-radius: 50px;
+  outline: none;
+  padding: 10px 20px;
+  width: 250px;
+  line-height: 30px;
+  margin-bottom: 30px;
+}

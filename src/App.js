@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import SearchBox from './components/SearchBox/SearchBox'
+import CardList from './components/Card-List/CardList'
 
 function App() {
+  const [monsters, setMonsters] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [input, setInput] = useState('')
+
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => {
+        setTimeout(() => {
+          setLoading(true)
+        }, 2000)
+        setMonsters(res.data)
+      })
+      .then(setLoading(false))
+      .catch(err => console.log(err))
+  }, [])
+
+  const filteredMonsters = monsters.filter(monster => monster.username.toLowerCase().includes(input.toLowerCase()))
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBox input={input} setInput={setInput} />
+      <CardList monsters={filteredMonsters} loading={loading} />
     </div>
   );
 }
