@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import SearchBox from './components/SearchBox/SearchBox'
 import CardList from './components/Card-List/CardList'
+import './App.css'
 
 function App() {
   const [monsters, setMonsters] = useState([])
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Monsters Rolodex</h2>
       <SearchBox input={input} setInput={setInput} placeholder="Search monsters..." />
       <CardList monsters={filteredMonsters} loading={loading} />
     </div>
