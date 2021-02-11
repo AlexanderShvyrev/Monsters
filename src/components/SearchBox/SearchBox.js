@@ -1,12 +1,11 @@
-import { useState } from 'react'
 
 import './searchBox.css'
 
-const SearchBox = ({ input, setInput }) => {
+const SearchBox = ({ input, setInput, placeholder }) => {
 
     return (
         <div className="search-container">
-            <input className="search" type="search" value={input} placeholder="Search monsters..." onChange={e => setInput(e.target.value)} />
+            <input className="search" type="search" value={input} placeholder={placeholder} onChange={e => setInput(e.target.value)} />
         </div>
     )
 }

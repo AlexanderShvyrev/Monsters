@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBox input={input} setInput={setInput} />
+      <SearchBox input={input} setInput={setInput} placeholder="Search monsters..." />
       <CardList monsters={filteredMonsters} loading={loading} />
     </div>
   );
