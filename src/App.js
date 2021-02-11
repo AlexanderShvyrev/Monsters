@@ -21,6 +21,7 @@ function App() {
       .catch(err => console.log(err))
   }, [])
 
+  //filter monsters
   const filteredMonsters = monsters.filter(monster => monster.username.toLowerCase().includes(input.toLowerCase()))
 
 
